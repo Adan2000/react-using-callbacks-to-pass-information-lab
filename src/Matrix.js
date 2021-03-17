@@ -11,6 +11,8 @@ export default class Matrix extends Component {
       selectedColor: '#FFF'
     }
   }
+  //the initial state is set to white (FFF)
+
 
   setSelectedColor = (newColor) => {
     this.setState({
@@ -18,9 +20,16 @@ export default class Matrix extends Component {
     })
   }
 
+//1.) we then make a method that will change the default state
+//this method updates selectedColor with whatever is passed 
+//to this method as a arument.
+
   genRow = (vals) => (
     vals.map((val, idx) => <Cell key={idx} color={val} selectedColor={this.state.selectedColor} />)
   )
+  //3.) Cell only needs to know about the selected color so
+  //we pass it in as a prop that is called selectedColor
+  //which has the initially set color from above
 
   genMatrix = () => (
     this.props.values.map((rowVals, idx) => <div key={idx} className="row">{this.genRow(rowVals)}</div>)
@@ -36,7 +45,13 @@ export default class Matrix extends Component {
       </div>
     )
   }
+  //2.) we then need ColorSelector to have access to setSelectedColor
+  //so we pass it in as a prop that is called setSelectedColor
+
 }
+
+
+
 
 Matrix.defaultProps = {
   values: learnSymbol

@@ -23,5 +23,6 @@ export default class Cell extends Component {
       </div>
     )
   }
+  //5.) here we add another event listener
   
 }

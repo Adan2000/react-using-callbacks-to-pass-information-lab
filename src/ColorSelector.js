@@ -11,6 +11,9 @@ export default class ColorSelector extends Component {
       return <div onClick={callback} key={idx} className="color-swatch" style={{backgroundColor: str}}/>
     })
   )
+//4.) we then add a callback function, clicking
+//on a div inside ColorSelector should now set state
+//in the Matrix
 
   render() {
     return (
